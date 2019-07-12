@@ -1,4 +1,4 @@
-package org.theseed.taxonomy.analyze;
+package org.theseed.taxonomy;
 
 import java.util.HashMap;
 
@@ -50,9 +50,18 @@ public enum Rank {
             for (Rank rnk : values) {
                 labelMap.put(rnk.label, rnk);
             }
+            // Domain is called superkingdom by NCBI.
+            labelMap.put("superkingdom", Rank.DOMAIN);
         }
         Rank retVal = labelMap.getOrDefault(label, Rank.OTHER);
         return retVal;
+    }
+
+    /**
+     * @return the number of good ranks
+     */
+    public static int nGood() {
+        return Rank.values.length - 1;
     }
 
 

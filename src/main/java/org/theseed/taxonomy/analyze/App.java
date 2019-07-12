@@ -1,13 +1,18 @@
 package org.theseed.taxonomy.analyze;
 
+
 /**
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        TaxonomyProfileProcessor runObject = new TaxonomyProfileProcessor();
+        boolean ok = runObject.parseCommand(args);
+        if (ok) {
+            runObject.run();
+        }
     }
 }
